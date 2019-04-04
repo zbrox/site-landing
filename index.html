@@ -2,44 +2,64 @@
 <html>
 <head>
 	<title>little home on the prarie</title>
-	<style type="text/css">
+    <style type="text/css">
+    html {
+        height: 100%;
+        width: 100%;
+        display: flex;
+    }
 	body {
 		transition: all 2.5s;
 		-webkit-transition: all 2.5s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
 	}
+
+    #links a {
+        background-color: white;
+        color: black;
+        text-decoration: none;
+        padding: 6px 4px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 	</style>
 </head>
 <body>
+    <div id="links">
+        <a href="https://blog.zbrox.com">blog</a>
+    </div>
 
+    <script type="text/javascript">
+        var setRGB = function(rgb) {
+            document.querySelectorAll('body')[0].style.backgroundColor = 'rgb(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ')';
+        };
 
-<script type="text/javascript">
-	var setRGB = function(rgb) {
-		document.querySelectorAll('body')[0].style.backgroundColor = 'rgb(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ')';
-	};
+        var randomComp = function() {
+            return Math.floor((Math.random() * 230) + 20);
+        }
 
-	var randomComp = function() {
-		return Math.floor((Math.random() * 230) + 20);
-	}
+        var colour = {
+            r: 52,
+            g: 221,
+            b: 221
+        };
 
-	var colour = {
-		r: 52,
-		g: 221,
-		b: 221
-	};
+        setRGB(colour);
 
-	setRGB(colour);
+        var transition = function() {
+            colour.r = randomComp();
+            colour.g = randomComp();
+            colour.b = randomComp();
 
-	var transition = function() {
-		colour.r = randomComp();
-		colour.g = randomComp();
-		colour.b = randomComp();
+            setRGB(colour);
+        };
 
-		setRGB(colour);
-	};
-
-	setInterval(function(){
-		transition();
-	}, 2500);
-</script>
+        setInterval(function(){
+            transition();
+        }, 2500);
+    </script>
 </body>
 </html>
