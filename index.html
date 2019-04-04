@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>little home on the prarie</title>
+	<style type="text/css">
+	body {
+		transition: all 2.5s;
+		-webkit-transition: all 2.5s;
+	}
+	</style>
+</head>
+<body>
+
+
+<script type="text/javascript">
+	var setRGB = function(rgb) {
+		document.querySelectorAll('body')[0].style.backgroundColor = 'rgb(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ')';
+	};
+
+	var randomComp = function() {
+		return Math.floor((Math.random() * 230) + 20);
+	}
+
+	var colour = {
+		r: 52,
+		g: 221,
+		b: 221
+	};
+
+	setRGB(colour);
+
+	var transition = function() {
+		colour.r = randomComp();
+		colour.g = randomComp();
+		colour.b = randomComp();
+
+		setRGB(colour);
+	};
+
+	setInterval(function(){
+		transition();
+	}, 2500);
+</script>
+</body>
+</html>
